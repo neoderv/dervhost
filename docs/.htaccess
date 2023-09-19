@@ -1,0 +1,3 @@
+php_value include_path "/lib"
+php_value auto_prepend_file "../lib/header.php"
+php_value auto_append_file "../lib/footer.php"
