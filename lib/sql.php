@@ -1,5 +1,5 @@
 <?php
-    $dsn = "mysql:host=$sqlHost;dbname=$sqlSecrets;charset=utf8mb4";
+    $dsn = "mysql:host=$sqlHost;dbname=$sqlDB;charset=utf8mb4";
     
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

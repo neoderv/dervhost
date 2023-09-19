@@ -1,7 +1,5 @@
 <?php
-    if ($_POST) {
-        $uploadfile = $upload . basename($_FILES['file']['name']);
-
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($username)) {
         $id = bin2hex(random_bytes(10));
 
         $outDir = "$tmpDir/" . $id;
@@ -9,11 +7,24 @@
         move_uploaded_file($_FILES['file']['tmp_name'], $outDir);
     
         $isValid = shell_exec("ffprobe -v error -show_entries stream=width,height -of default=noprint_wrappers=1 $outDir");
+    
+        $title = $_POST['title'];
+        $desc = $_POST['description'];
     }
 
-    if ($isValid) {
+    if (isset($isValid) && strlen($title) < 64 && strlen($desc) < 1024) {
         shell_exec("ffmpeg -i $outDir ../data/videos/$id.mp4");
-        shell_exec("ffmpeg -i ../data/videos/$id.mp4 -ss 00:00:01.000 -vframes 1 ../data/thumb/$id.png");
+        shell_exec("ffmpeg -i ../data/videos/$id.mp4 -ss 00:00:01.000 -frames:v 1 ../data/thumb/$id.png");
+
+        $stmt = $pdo->prepare("INSERT INTO video (id, title, info, username, uploaded) VALUES (:id,:title,:info,:username,:uploaded)");
+
+        $stmt->execute([
+            "id" => $id,
+            "title" => $title,
+            "info" => $desc,
+            "username" => $username,
+            "uploaded" => microtime(true)
+        ]);
     }
 ?>
 
@@ -21,11 +32,11 @@
     <span>
         Title
     </span>
-    <input name='title' placeholder='A very cool video'>
+    <input name='title' maxlength='64' placeholder='A very cool video'>
     <span>
         Description
     </span>
-    <textarea name='description'></textarea>
+    <textarea name='description' maxlength='1024'></textarea>
     <span>
         Source File
     </span>
