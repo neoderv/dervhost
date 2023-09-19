@@ -1,1 +1,4 @@
 /lib/secrets.php
+/docs/data
+/tmp/
+*.log

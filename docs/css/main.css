@@ -47,6 +47,7 @@ form, .area {
     display: grid;
     grid-template-columns: 1fr;
     width: 700px;
+    max-width: calc(90vw - 20px);
 
     box-shadow: var(--shadow-1);
 
@@ -55,7 +56,7 @@ form, .area {
 }
 
 form {
-    grid-template-columns: 0.7fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 .nav {
@@ -68,21 +69,37 @@ form {
     text-align: right;
 }
 
-.nav a:first-child {
+.nav span:first-child {
     text-align: left;
 }
 
 .nav a {
     color: white;
     text-decoration: none;
+
+    padding: 10px;
 }
 
 .main-content {
     width: 720px;
+
+    max-width: 90vw;
 }
 
 .flex-column {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+video {
+    width: 720px;
+    max-width: 90vw;
+
+    height: 405px;
+    max-height: 50vw;
+
+    background: var(--dark-1);
+
+    box-shadow: var(--shadow-1);
 }

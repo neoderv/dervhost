@@ -1,3 +1,2 @@
-php_value include_path "/lib"
-php_value auto_prepend_file "../lib/nav.php"
-php_value auto_append_file "../lib/footer.php"
+php_value auto_prepend_file nav.php
+php_value auto_append_file footer.php
