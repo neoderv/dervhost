@@ -1,3 +1,9 @@
+<?php
+    include("secrets.php");
+	include("auth.php"); 
+    include("sql.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,4 +14,4 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta charset="utf-8" />
     </head>
-    <body><div id='main-content'>
+    <body><div class='main-content'>

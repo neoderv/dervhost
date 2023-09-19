@@ -16,10 +16,10 @@ body {
 :root {
     --dark-1: #2b2f36;
     --dark-2: #d8d8d8;
-    --dark-3: rgb(73, 138, 236);
 
     --light-1: #ffffff;
-    --light-2: #f8f8f8;
+
+    --main-1: rgb(73, 138, 236);
     
     --hyperlink: rgb(139, 171, 219);
 
@@ -43,7 +43,7 @@ input, textarea {
     margin-bottom: 0.5rem;
 }
 
-.area, form {
+form, .area {
     display: grid;
     grid-template-columns: 1fr;
     width: 700px;
@@ -58,6 +58,31 @@ form {
     grid-template-columns: 0.7fr 1fr;
 }
 
-#main-content {
+.nav {
+    background: var(--main-1);
+    font-weight: bold;
+    color: white;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: right;
+}
+
+.nav a:first-child {
+    text-align: left;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-content {
     width: 720px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
