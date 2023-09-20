@@ -11,7 +11,7 @@
             <a href='/upload'>Upload</a>
             <a href='/users/<?php echo $username ?>'><?php echo $username ?></a>
         <?php } else { ?>
-            <a href='https://auth.dervland.net/login?next=host.dervland.net'>Log in</a>
+            <a href='https://auth.dervland.net/login?next=https://host.dervland.net'>Log in</a>
         <?php } ?>
     </span>
 </div>
