@@ -1,2 +1,5 @@
 php_value auto_prepend_file nav.php
 php_value auto_append_file footer.php
+
+RewriteEngine on
+RewriteRule ^/?videos/([0-9a-f]+)$ /videos.php?id=$1

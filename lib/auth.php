@@ -8,4 +8,7 @@
     curl_close($ch);
 
     $username = json_decode($data)->username;
+
+    $upload = $_SERVER['DOCUMENT_ROOT'].'/data';
+	$tmpDir = $_SERVER['DOCUMENT_ROOT'].'/../tmp';
 ?>

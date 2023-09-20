@@ -123,11 +123,12 @@ video {
 
 .vmeta {
     width: 210px;
-    height: 170px;
-
-    overflow: hidden;
 
     margin: auto;
 
     margin-top: 10px;
+}
+
+.big {
+    font-size: 1.2rem;
 }

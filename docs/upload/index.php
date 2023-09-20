@@ -25,6 +25,9 @@
             "username" => $username,
             "uploaded" => microtime(true)
         ]);
+
+        header("Location: /videos/$id");
+        die();
     }
 ?>
 

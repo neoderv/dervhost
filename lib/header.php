@@ -2,9 +2,7 @@
     include("secrets.php");
 	include("auth.php"); 
     include("sql.php");
-
-	$upload = $_SERVER['DOCUMENT_ROOT'].'/data';
-	$tmpDir = $_SERVER['DOCUMENT_ROOT'].'/../tmp';
+	include("util.php");
 ?>
 
 <!DOCTYPE html>

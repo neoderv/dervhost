@@ -14,17 +14,21 @@
         $videos = $stmt->fetchAll();
 
         foreach ($videos as $video) {
-            $safeId = htmlspecialchars($video['id']);
-            $safeTitle = htmlspecialchars($video['title']);
-            $safeUser = htmlspecialchars($video['username']);
+            $video = parseVideo($video);
+
+            $safeId = $video['id'];
+            $safeTitle = $video['title'];
+            $safeUser = $video['username'];
+            $safeDate = $video['uploaded'];
 
             echo "
                 <div class='vmeta'>
                     <a href='/videos/$safeId'>
                         <img class='thumb' src='/data/thumb/$safeId.png'>
-                        <div><b>$safeTitle</b></div>
-                        <div><a href='/users/$safeUser'>$safeUser</a></div>
+                        <div class='big'><b>$safeTitle</b></div>
                     </a>
+                    <div><a href='/users/$safeUser'>$safeUser</a></div>
+                    <div>$safeDate</div>
                 </div>
             ";
         }
